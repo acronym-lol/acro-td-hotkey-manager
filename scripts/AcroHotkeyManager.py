@@ -109,7 +109,7 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
 
         if key in self._bindings and not force:
             existing = self._bindings[key]
-            print(f"HotkeyManager: Warning - '{hotkey}' already bound to {existing['owner']}")
+            debug(f"HotkeyManager: Warning - '{hotkey}' already bound to {existing['owner']}")
             return False
 
         # Determine owner path from callback
@@ -126,7 +126,7 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
             'enabled': True
         }
 
-        print(f"HotkeyManager: Registered '{hotkey}' -> {description or callback.__name__}")
+        # debug(f"HotkeyManager: Registered '{hotkey}' -> {description or callback.__name__}")
         return True
 
     def Unregister(self, hotkey: str) -> bool:
@@ -145,7 +145,7 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
             return False
 
         del self._bindings[key]
-        print(f"HotkeyManager: Unregistered '{hotkey}'")
+        # debug(f"HotkeyManager: Unregistered '{hotkey}'")
         return True
 
     def UnregisterOwner(self, owner_path: str) -> int:
@@ -192,9 +192,10 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
 
     def PrintHelp(self):
         """Print all registered hotkeys to textport."""
-        print("\n" + "=" * 60)
-        print("REGISTERED HOTKEYS")
         print("=" * 60)
+        version_str = self.VersionString
+        print(f"AcroHotkeyManager - {version_str}")
+        print("REGISTERED HOTKEYS")
 
         if not self._bindings:
             print("No hotkeys registered.")
@@ -295,6 +296,9 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
         except Exception as e:
             print(f"HotkeyManager: Error executing callback for '{hotkey}': {e}")
             print(traceback.format_exc())
+
+    def onStart(self):
+        run(self.PrintHelp, delayFrames=1)
 
     # =========================================================================
     # PULSE HANDLERS

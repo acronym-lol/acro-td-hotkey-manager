@@ -102,14 +102,14 @@ class MyComponent(CallbacksExt):
         self._registerHotkeys()
 
     def _registerHotkeys(self):
-        if hasattr(op, 'HOTKEYMANAGER') and op.AHM:
+        if hasattr(op, 'AHM') and op.AHM:
             op.AHM.Register(
                 'ctrl+alt+m', self.MyMethod,
                 description='Do something useful'
             )
 ```
 
-Always guard the call with `hasattr(op, 'HOTKEYMANAGER')`. The manager may not exist in projects derived from this template that have removed it, and components should fail soft.
+Always guard the call with `hasattr(op, 'AHM')`. The manager may not exist in projects derived from this template that have removed it, and components should fail soft.
 
 ---
 

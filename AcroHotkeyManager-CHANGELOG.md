@@ -1,7 +1,9 @@
 # Changelog
 
-## [1.0.8] - 2026-04-22
-- 
+All notable changes to this project will be documented in this file.
+
+## [1.0.12] - 2026-06-09
+- Updated changelog and version paths
 
 ## [1.0.7] - 2026-04-13
 - Add hotkey to print hotkeys ctrl+alt+shift+h
