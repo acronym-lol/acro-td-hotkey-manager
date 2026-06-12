@@ -6,7 +6,7 @@ Central hotkey management for TouchDesigner components.
 
 - Simple API for registering hotkey combinations
 - Modifier state tracking (ctrl, alt, shift)
-- Conflict handling with first-registered-wins policy
+- Conflict handling — replace by default, or defer to existing bindings with `force=False`
 - Enable/disable hotkeys without removing them
 
 ## Usage

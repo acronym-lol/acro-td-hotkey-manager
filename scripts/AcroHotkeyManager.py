@@ -91,7 +91,7 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
     # PUBLIC METHODS
     # =========================================================================
 
-    def Register(self, hotkey: str, callback: callable,
+    def Register(self, hotkey: str, callback,
                  description: str = '', force: bool = True) -> bool:
         """
         Register a hotkey binding.
@@ -100,7 +100,11 @@ class AcroHotkeyManager(CallbacksExt, AcroVersionExt):
             hotkey: Key combination string (e.g., 'ctrl+alt+shift+n')
             callback: Function to call when hotkey is pressed
             description: Human-readable description for help
-            force: If True, overwrite existing binding
+            force: If True (default), replace any existing binding. This is
+                required so components can re-register cleanly when their
+                synced extension reloads (bindings hold the old instance's
+                callback otherwise). Pass False to keep an existing binding
+                (returns False with a warning).
 
         Returns:
             True if registered, False if conflict (and force=False)

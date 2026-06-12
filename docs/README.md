@@ -64,7 +64,7 @@ Wrapping the call in `if op.AHM:` keeps the component usable in projects that do
 
 ## Conflict handling
 
-- **First-registered wins** — a duplicate registration is rejected with a warning unless `force=True` is passed.
+- **Last-registered wins by default** (`force=True`) — re-registering replaces the existing binding, so synced-extension reloads refresh their callbacks. Pass `force=False` to defer to an existing binding (rejected with a warning).
 - The `owner` field on each binding records the path of the registering component, so `UnregisterOwner('/path/to/comp')` can clean up everything a component owns in one call (useful before reloading an extension).
 
 ## Where to go next
