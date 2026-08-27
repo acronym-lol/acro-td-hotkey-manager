@@ -1,3 +1,7 @@
+---
+last_reviewed: 2026-08-27
+---
+
 # Acro TD Hotkey Manager
 
 Central keyboard-shortcut registry for TouchDesigner components.
