@@ -1,6 +1,10 @@
 # Acro TD Hotkey Manager
 
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://acronym-lol.github.io/acro-td-hotkey-manager/)
+
 Central hotkey management for TouchDesigner components.
+
+**Documentation:** https://acronym-lol.github.io/acro-td-hotkey-manager/
 
 ## Features
 
